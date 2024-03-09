@@ -1,0 +1,36 @@
+import os
+import csv
+
+csvpath = os.path.join('Resources', 'budget_data.csv')
+
+months = []
+profit_loss = []
+total_months = 0
+total_profits = 0
+
+with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    csv_header = next(csvreader)
+
+    #count number of months
+    total_time = [row for row in csvreader]
+    #print Total months : 86
+    print("Total Months: " + (str(len(total_time))))
+
+
+with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    csv_header = next(csvreader)
+    #net profits
+    for row in csvreader:
+        total_profits += int(row[1])
+        print(total_profits)
+
+    
+        
+
+
+    
+
+    
+
