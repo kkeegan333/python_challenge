@@ -7,8 +7,7 @@ ballot_Id = []
 county = []
 candidate =[]
 unique_candidate =[]
-vote_count = []
-vote_percent = []
+
 
 total_votes = 0
 

@@ -25,29 +25,26 @@ with open(csvpath) as csvfile:
     #print total 22564198
 
     #total profit divided by months
-    difference_bt_months = [profit_loss[i+1]-profit_loss[i] for i in range(int(profit_loss))]
-    average_change = sum(difference_bt_months) / (len(total_months))
-    #average_profit_loss = (total_profit_loss/total_months)
+    #error message for index out of range for profit loss[i+1]??
+    for i in range(profit_loss):
+        difference_bt_months = [profit_loss[i+1]-profit_loss[i] for i in range(len(profit_loss))]
+        average_change = sum(difference_bt_months) / (len(total_months))
+    
     #list of changes month over month
         
-    #greatest_increase = max(difference_bt_months)
-    #greatest_decrease = min(difference_bt_months)
+    greatest_increase = max(difference_bt_months)
+    greatest_decrease = min(difference_bt_months)
 
-    #highest_month_index = profit_loss.index(greatest_increase)
-    #lowest_month_index = profit_loss.index(greatest_decrease)
-
-    #best_month = months[highest_month_index]
-    #worst_month = months[lowest_month_index]
-
-
+    highest_month_index = profit_loss.index(greatest_increase)
+    lowest_month_index = profit_loss.index(greatest_decrease)
 
 #print("Average Change: " + str(average_change))
 
 print("Total: " + str(total_profit_loss))
 print("Total Months: " + (str(total_months)))
 print("Average: " + (str(average_change)))
-#print("Greatest Increase " + (str(best_month) + "  "+ "$" + (str(greatest_increase))))
-#print("Greatest Decrease " + (str(worst_month) + "  "+ "$" + (str(greatest_decrease))))  
+print("Greatest Increase " + (str(highest_month_index) + "  "+ "$" + (str(greatest_increase))))
+print("Greatest Decrease " + (str(lowest_month_index) + "  "+ "$" + (str(greatest_decrease))))  
         
 
 
