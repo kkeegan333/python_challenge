@@ -12,7 +12,7 @@ Geeks for Geeks website
 Rutgers Xpert Learning Assistant
 Microst Edge Ai assistant
 Stackoverflow
-- unique vallues
+- unique values
 - item pull from indexes
 
   
