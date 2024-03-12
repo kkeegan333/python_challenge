@@ -22,10 +22,9 @@ with open(csvpath) as csvfile:
         candidate.append(row[2])
         #the total number of votes
         total_votes = str(len(ballot_Id))
-        #unique candidates
-        for x in range(candidate):
-            candidate_set = set(candidate)
-            unique_candidate = list(candidate_set)
   
-print(str(total_votes))
-print(str(len(unique_candidate)))
+print("Total Votes: " + str(total_votes))
+
+results = os.path.join('analysis', 'results.txt')
+with open('results', 'w') as f:
+    f.write("Total Votes: " + str(total_votes))
