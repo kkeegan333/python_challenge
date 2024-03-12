@@ -1,0 +1,57 @@
+import os
+import csv
+
+csvpath = os.path.join('Resources', 'budget_data.csv')
+
+months = []
+profit_loss = []
+
+total_months = 0
+total_profit_loss = 0
+
+with open(csvpath) as csvfile:
+    csvreader = csv.reader(csvfile, delimiter=',')
+    csv_header = next(csvreader)
+
+    for row in csvreader:
+        months.append(row[0])
+        profit_loss.append(row[1])
+
+    #count number of months
+        total_months = len(months)
+    #print Total months : 86
+        
+    #monthly profit
+    profit_loss = [int(i) for i in profit_loss]
+    #print total 22564198
+    total_profit_loss = sum(profit_loss)
+    
+    #error message for index out of range for profit loss[i+1]??
+    for i in range(len(profit_loss)):
+        difference_bt_months = [profit_loss[i-1]-profit_loss[i] for i in range(len(profit_loss)-1)]
+        average_change = sum(difference_bt_months) / (total_months)
+    
+    #max/min of changes month over month        
+    greatest_increase = max(difference_bt_months)
+    greatest_decrease = min(difference_bt_months)
+    
+
+#terminal Print
+print("Total: " + str(total_profit_loss))
+print("Total Months: " + (str(total_months)))
+print("Average: " + (str(average_change)))
+print("Greatest Increase was " + "$" + (str(greatest_increase)))
+print("Greatest Decrease was " + "$" + (str(greatest_decrease)))
+        
+
+results = os.path.join('analysis', 'results.txt')
+with open('results', 'w') as f:
+    f.print("Total: " + str(total_profit_loss))
+    f.write("Total Months: " + (str(total_months)))
+    f.write("Average: " + (str(average_change)))
+    f.write("Greatest Increase was " + "$" + (str(greatest_increase)))
+    f.write("Greatest Decrease was " + "$" + (str(greatest_decrease)))
+
+
+    
+
